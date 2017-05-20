@@ -1,0 +1,16 @@
+{
+  "name": "heroku_node-red",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/node-red --settings ./settings.js",
+    "pw": "./node_modules/.bin/node-red node-red-admin hash-pw",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-red": "^0.16.2"
+  }
+}
