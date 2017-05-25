@@ -1,3 +1,5 @@
+Fonctional but buggy
+
 # TODO :
 Custom Auth : http://nodered.org/docs/security#custom-user-authentication
 
