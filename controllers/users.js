@@ -133,7 +133,8 @@ router.post('/login', passport.authenticate('local-login', {
   // If this function gets called, authentication was successful.
   // `req.user` contains the authenticated user.
   // see : https://github.com/curtislacy/passport-local/blob/master/examples/express3/app.js#L110
-  res.redirect('/profile/');
+  // res.redirect('/profile/');
+  res.redirect('/dashboard');
 })
 
 // process the signup form
@@ -149,7 +150,8 @@ router.post('/signup', passport.authenticate('local-signup', {
 }), (req, res) => {
   // If this function gets called, authentication was successful.
   // `req.user` contains the authenticated user.
-  res.redirect('/profile/');
+  // res.redirect('/profile/');
+  res.redirect('/dashboard');
 })
 
 // expose this function to our app using module.exports

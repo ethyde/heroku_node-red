@@ -14,10 +14,13 @@ import cookieSession from 'cookie-session'
 
 // configuration ===============================================================
 import routesController from '../controllers/routes'
-import authController from '../controllers/authentication'
+import userController from '../controllers/users'
+import authController from '../controllers/auth'
 
 // load node-red
 import RED from 'node-red'
+// and his settings
+import settings from './node-red.settings'
 
 mongoose.Promise = Promise
 
@@ -41,28 +44,31 @@ app.use(passport.session()); // persistent login sessions
 
 
 // routes/controllers ==========================================================
+app.use((req, res, next) => {
+  // if (req.csrfToken) {
+  //   res.locals.csrfToken = req.csrfToken()
+  // }
+  res.locals.flash = req.flash()
+  res.locals.query = req.query
+  res.locals.url = req.url
+  res.locals.user = req.user
+  next()
+})
 app.use(routesController) // Load Get Routes
-app.use(authController) // Load Post/Auth Routes
+app.use(userController) // Load Post/Auth Routes
+app.use(authController)
 
 // Setup node-red ==============================================================
-const options = {
-    httpAdminRoot:"/red",
-    httpNodeRoot: "/api",
-    // adminAuth: userAuth,
-    // userDir:"./users",
-    functionGlobalContext: { }    // enables global context
-}
-
-RED.init(app,options)
+RED.init( app, settings )
 
 // Serve the editor UI from /red
-app.use(options.httpAdminRoot,RED.httpAdmin);
+app.use( settings.httpAdminRoot, RED.httpAdmin )
 
 // Serve the http nodes UI from /api
-app.use(options.httpNodeRoot,RED.httpNode);
+app.use( settings.httpNodeRoot, RED.httpNode )
 
 // Start the runtime
-RED.start();
+RED.start()
 
 // Export to server.js =========================================================
 export default app
