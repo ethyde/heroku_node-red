@@ -2,7 +2,7 @@
   "name": "heroku_node-red",
   "version": "0.0.1",
   "description": "",
-  "main": "server.js",
+  "main": "boot.js",
   "scripts": {
     "node-red": "./node_modules/.bin/node-red --settings ./settings.js",
     "dev:server": "cross-env NODE_ENV=development nodemon boot.js",
