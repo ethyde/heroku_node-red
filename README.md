@@ -2,6 +2,8 @@
 Custom Auth : http://nodered.org/docs/security#custom-user-authentication
 
 # TODO :
+https://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
+http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.WSCrw4rfORs
 PassPort + EJS + Local Strategy : 
 * https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 * https://scotch.io/tutorials/easy-node-authentication-google
