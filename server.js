@@ -1,7 +1,6 @@
 import { createServer } from 'http'
 
 import app from './app/app'
-import dbConnect from './models/connections'
 
 dbConnect(() => {
   console.log('✔ Connection established to mongoDB database')
