@@ -18,7 +18,7 @@
 // to make it available:
 //var fs = require("fs");
 
-module.exports = {
+const settings = {
     // the tcp port that the Node-RED web server is listening on
     uiPort: process.env.PORT || 1880,
 
@@ -105,14 +105,14 @@ module.exports = {
     // -----------------
     // To password protect the Node-RED editor and admin API, the following
     // property can be used. See http://nodered.org/docs/security.html for details.
-    adminAuth: {
-       type: "credentials",
-       users: [{
-           username: "admin",
-           password: "$2a$08$dCQxasGqaCn5iXodnUMqj.xW5gkzkThanaT7T9nsCeTlncRD7Rs5.",
-           permissions: "*"
-       }]
-    },
+    // adminAuth: {
+    //    type: "credentials",
+    //    users: [{
+    //        username: "admin",
+    //        password: "$2a$08$dCQxasGqaCn5iXodnUMqj.xW5gkzkThanaT7T9nsCeTlncRD7Rs5.",
+    //        permissions: "*"
+    //    }]
+    // },
 
     // To password protect the node-defined HTTP endpoints (httpNodeRoot), or
     // the static content (httpStatic), the following properties can be used.
@@ -205,4 +205,39 @@ module.exports = {
             audit: false
         }
     }
+
+    // Configure Editor Theme
+    // http://nodered.org/docs/configuration#editor-themes
+    // editorTheme: {
+    //     page: {
+    //         title: "Node-RED",
+    //         favicon: "/absolute/path/to/theme/icon",
+    //         css: "/absolute/path/to/custom/css/file"
+    //     },
+    //     header: {
+    //         title: "Node-RED",
+    //         image: "/absolute/path/to/header/image", // or null to remove image
+    //         url: "http://nodered.org" // optional url to make the header text/image a link to this url
+    //     },
+    //     deployButton: {
+    //         type:"simple",
+    //         label:"Save",
+    //         icon: "/absolute/path/to/deploy/button/image" // or null to remove image
+    //     },
+    //     menu: { // Hide unwanted menu items by id. see editor/js/main.js:loadEditor for complete list
+    //         "menu-item-import-library": false,
+    //         "menu-item-export-library": false,
+    //         "menu-item-keyboard-shortcuts": false,
+    //         "menu-item-help": {
+    //             label: "Alternative Help Link Text",
+    //             url: "http://example.com"
+    //         }
+    //     },
+    //     userMenu: false, // Hide the user-menu even if adminAuth is enabled
+    //     login: {
+    //         image: "/absolute/path/to/login/page/big/image" // a 256x256 image
+    //     }
+    // }
 }
+
+export default settings

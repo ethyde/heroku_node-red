@@ -1,0 +1,12 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "Firefox ESR"],
+        "node": "6.10"
+      }
+    }],
+    "stage-0"
+  ],
+  "plugins": ["transform-runtime"]
+}
