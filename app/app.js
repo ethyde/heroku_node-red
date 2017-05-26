@@ -3,6 +3,7 @@
 // set up ======================================================================
 // get all the tools we need
 import express  from 'express'
+import { createServer } from 'http'
 
 // configuration ===============================================================
 
@@ -13,12 +14,14 @@ import settings from './node-red.settings'
 
 const app = express()
 
+
 // set up our express application
 app.set('port', process.env.PORT || 3000)
 app.use('/',express.static('public')) // server static content from public
 
+const server = createServer(app)
 // Setup node-red ==============================================================
-RED.init( app, settings )
+RED.init( server, settings )
 
 // Serve the editor UI from /red
 app.use( settings.httpAdminRoot, RED.httpAdmin )
