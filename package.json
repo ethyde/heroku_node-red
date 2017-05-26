@@ -4,7 +4,7 @@
   "description": "",
   "main": "boot.js",
   "scripts": {
-    "node-red": "./node_modules/.bin/node-red --settings ./app/node-red.settings.js",
+    "node-red": "./node_modules/.bin/node-red --settings ./app/node-red.settings.es5.js",
     "dev:server": "cross-env NODE_ENV=development nodemon boot.js",
     "start": "cross-env NODE_ENV=production node boot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
