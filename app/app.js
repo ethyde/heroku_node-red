@@ -15,7 +15,7 @@ const app = express()
 
 // set up our express application
 app.set('port', process.env.PORT || 3000)
-app.use("/",express.static("public")) // server static content from public
+app.use('/',express.static('public')) // server static content from public
 
 // Setup node-red ==============================================================
 RED.init( app, settings )
